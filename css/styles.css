@@ -104,6 +104,9 @@ h3{font-family:var(--ff-sans);font-weight:700;font-size:1.16rem;letter-spacing:-
 .nav.scrolled .nav-links a:hover{color:var(--ink)}
 .nav.scrolled .btn-ghost{color:var(--ink);box-shadow:inset 0 0 0 1.5px rgba(20,18,16,.24)}
 .nav.scrolled .btn-ghost:hover{background:rgba(20,18,16,.07)}
+/* nav Call button: solid white so it stays visible over the hero photo and the ivory nav */
+.nav-cta .btn-ghost,.nav.scrolled .nav-cta .btn-ghost{background:#fff;color:var(--ink);box-shadow:0 3px 14px -6px rgba(20,18,16,.45)}
+.nav-cta .btn-ghost:hover,.nav.scrolled .nav-cta .btn-ghost:hover{background:#fff;color:var(--brass-deep);transform:translateY(-2px);box-shadow:0 8px 20px -8px rgba(20,18,16,.5)}
 .nav.scrolled .nav-burger{box-shadow:inset 0 0 0 1.5px rgba(20,18,16,.22)}
 .nav.scrolled .nav-burger span{background:var(--ink)}
 .nav-mobile{display:none}
