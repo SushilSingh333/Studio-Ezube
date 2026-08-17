@@ -7,7 +7,7 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* -------- Business contact (edit these two to go live) -------- */
-  var WHATSAPP = '919811000000';      // country code + number, no '+'
+  var WHATSAPP = '919718666313';      // country code + number, no '+'
   /* -------------------------------------------------------------- */
 
   document.addEventListener('DOMContentLoaded', init);
@@ -117,43 +117,11 @@
     nums.forEach(function (n) { io.observe(n); });
   }
 
-  /* ---------------- Forms ---------------- */
+  /* ---------------- Forms ----------------
+     Submission is handled by form.js (posts leads to the Aajneeti API).
+     Here we only clear error styling as the user fixes fields. */
   function forms() {
     document.querySelectorAll('.lead-form').forEach(function (form) {
-      form.addEventListener('submit', function (ev) {
-        ev.preventDefault();
-        clearErrors(form);
-        var ok = true, firstBad = null;
-
-        var name = form.querySelector('[name="name"]');
-        var phone = form.querySelector('[name="phone"]');
-        var type = form.querySelector('[name="type"]');
-
-        if (name && !name.value.trim()) { ok = false; markBad(name); firstBad = firstBad || name; }
-        var digits = phone ? phone.value.replace(/\D/g, '') : '';
-        if (phone && (digits.length < 10 || digits.length > 13)) { ok = false; markBad(phone); firstBad = firstBad || phone; }
-        if (type && !type.value) { ok = false; markBad(type); firstBad = firstBad || type; }
-
-        if (!ok) { if (firstBad) firstBad.focus(); return; }
-
-        // Compose a WhatsApp hand-off so the lead reaches the studio instantly.
-        var get = function (n) { var f = form.querySelector('[name="' + n + '"]'); return f ? f.value.trim() : ''; };
-        var lines = ['Hi Studio Ezube, I\'d like a free consultation.',
-          'Name: ' + get('name'),
-          'Phone: ' + get('phone'),
-          'Home: ' + get('type')];
-        if (get('area')) lines.push('Locality: ' + get('area'));
-        if (get('budget')) lines.push('Budget: ' + get('budget'));
-        if (get('message')) lines.push('Notes: ' + get('message'));
-        var url = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(lines.join('\n'));
-
-        var success = form.querySelector('.form-success');
-        if (success) success.hidden = false;
-        window.setTimeout(function () { window.open(url, '_blank', 'noopener'); }, 400);
-        form.reset();
-      });
-
-      // clear error styling as the user fixes fields
       form.querySelectorAll('input,select,textarea').forEach(function (f) {
         f.addEventListener('input', function () {
           var field = f.closest('.field');
@@ -161,10 +129,6 @@
         });
       });
     });
-  }
-  function markBad(el) { var f = el.closest('.field'); if (f) f.classList.add('invalid'); }
-  function clearErrors(form) {
-    form.querySelectorAll('.field.invalid').forEach(function (f) { f.classList.remove('invalid'); });
   }
 
   /* ---------------- Work filter ---------------- */

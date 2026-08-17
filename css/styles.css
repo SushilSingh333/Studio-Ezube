@@ -382,6 +382,8 @@ h3{font-family:var(--ff-sans);font-weight:700;font-size:1.16rem;letter-spacing:-
   line-height:1;color:var(--taupe);display:grid;place-items:center;transition:background .25s var(--ease),color .25s var(--ease);z-index:2}
 .modal-close:hover{background:rgba(20,18,16,.07);color:var(--ink)}
 .modal .form-head{padding-right:2rem}
+/* Keep SweetAlert popups (loader/validation/error) above the lead modal (z-index 1100) */
+.swal2-container{z-index:2000 !important}
 
 /* ============================ lightbox ============================ */
 .lightbox{position:fixed;inset:0;z-index:1000;background:rgba(14,12,10,.95);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
