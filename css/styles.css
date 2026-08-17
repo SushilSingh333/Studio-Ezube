@@ -331,7 +331,7 @@ h3{font-family:var(--ff-sans);font-weight:700;font-size:1.16rem;letter-spacing:-
 
 /* ============================ footer ============================ */
 .footer{background:var(--ink-2);color:var(--muted-d);padding-top:clamp(3.5rem,6vw,5rem)}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:2.5rem;padding-bottom:3rem}
+.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1.3fr;gap:2.5rem;padding-bottom:3rem}
 .footer-logo{height:42px;width:auto;filter:brightness(0) invert(1);margin-bottom:1.2rem}
 .footer-brand p{font-size:.95rem;max-width:36ch;color:var(--muted-d)}
 .socials{display:flex;gap:.7rem;margin-top:1.5rem}
@@ -344,7 +344,9 @@ h3{font-family:var(--ff-sans);font-weight:700;font-size:1.16rem;letter-spacing:-
 .footer-col a{transition:color .25s var(--ease)}
 .footer-col a:hover{color:var(--cream)}
 .footer-base{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:1.4rem 1.8rem;border-top:1px solid var(--line-d);font-size:.82rem}
-.footer-base .fine{color:var(--taupe);font-family:var(--ff-mono)}
+.footer-base .fine{color:var(--taupe)}
+.footer-base .dev{color:var(--muted-d)}
+.footer-base .dev span{color:var(--brass-light);font-weight:600}
 
 /* ============================ floating actions ============================ */
 .fab{position:fixed;right:clamp(16px,3vw,28px);bottom:clamp(16px,3vw,28px);z-index:800;display:flex;flex-direction:column;gap:14px;
@@ -365,6 +367,21 @@ h3{font-family:var(--ff-sans);font-weight:700;font-size:1.16rem;letter-spacing:-
 .fab-btn::after{content:attr(data-tip);position:absolute;right:72px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;
   background:var(--ink);color:var(--cream);font-size:.8rem;font-weight:500;padding:.5em .85em;border-radius:8px;opacity:0;pointer-events:none;transition:.3s var(--ease);box-shadow:var(--sh-1)}
 .fab-btn:hover::after{opacity:1;transform:translateY(-50%)}
+
+/* ============================ lead modal ============================ */
+.modal{position:fixed;inset:0;z-index:1100;display:flex;align-items:center;justify-content:center;padding:5vw;
+  background:rgba(14,12,10,.62);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+  opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s var(--ease)}
+.modal.open{opacity:1;visibility:visible}
+.modal-card{position:relative;width:100%;max-width:480px;max-height:92vh;overflow-y:auto;
+  background:linear-gradient(180deg,#fffdf7,#f4efe3);border:1px solid rgba(231,214,174,.6);
+  border-radius:var(--r-lg);box-shadow:var(--sh-2);padding:clamp(1.6rem,3vw,2.4rem);
+  transform:translateY(18px) scale(.98);transition:transform .45s var(--ease)}
+.modal.open .modal-card{transform:none}
+.modal-close{position:absolute;top:.7rem;right:.8rem;width:40px;height:40px;border-radius:50%;font-size:1.9rem;
+  line-height:1;color:var(--taupe);display:grid;place-items:center;transition:background .25s var(--ease),color .25s var(--ease);z-index:2}
+.modal-close:hover{background:rgba(20,18,16,.07);color:var(--ink)}
+.modal .form-head{padding-right:2rem}
 
 /* ============================ lightbox ============================ */
 .lightbox{position:fixed;inset:0;z-index:1000;background:rgba(14,12,10,.95);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);

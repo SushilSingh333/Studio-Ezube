@@ -22,6 +22,7 @@
     workFilter();
     lightbox();
     fab();
+    modal();
     var y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
   }
@@ -214,6 +215,54 @@
       if (e.key === 'Escape') close();
       else if (e.key === 'ArrowLeft') show(idx - 1);
       else if (e.key === 'ArrowRight') show(idx + 1);
+    });
+  }
+
+  /* ---------------- Lead modal ---------------- */
+  function modal() {
+    var m = document.getElementById('leadModal');
+    var form = document.getElementById('modalForm');
+    if (!m || !form) return;
+
+    var open = function (bhk) {
+      // fresh form each time: hide any success + clear errors
+      var succ = form.querySelector('.form-success');
+      if (succ) succ.hidden = true;
+      form.querySelectorAll('.field.invalid').forEach(function (f) { f.classList.remove('invalid'); });
+      if (bhk) {
+        var sel = form.querySelector('[name="type"]');
+        if (sel) {
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === bhk || sel.options[i].text === bhk) { sel.selectedIndex = i; break; }
+          }
+        }
+      }
+      m.classList.add('open');
+      m.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      var first = form.querySelector('input,select');
+      if (first) window.setTimeout(function () { first.focus(); }, 80);
+    };
+    var close = function () {
+      m.classList.remove('open');
+      m.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('[data-open-modal]').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        var nav = document.getElementById('nav');
+        if (nav) { nav.classList.remove('open'); }   // close mobile menu if open
+        var b = document.getElementById('burger');
+        if (b) { b.setAttribute('aria-expanded', 'false'); }
+        open(el.getAttribute('data-bhk'));
+      });
+    });
+    m.querySelector('.modal-close').addEventListener('click', close);
+    m.addEventListener('click', function (e) { if (e.target === m) close(); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && m.classList.contains('open')) close();
     });
   }
 

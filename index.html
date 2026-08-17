@@ -50,7 +50,7 @@
           <svg viewBox="0 0 24 24" class="ico"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.6 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.6 3.6 1 1 0 01-.25 1z"/></svg>
           Call
         </a>
-        <a href="#consult" class="btn btn-solid btn-sm">Free consultation</a>
+        <a href="#consult" data-open-modal class="btn btn-solid btn-sm">Free consultation</a>
       </div>
       <button class="nav-burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
@@ -60,7 +60,7 @@
       <a href="#process">Process</a>
       <a href="#work">Our work</a>
       <a href="#voices">Clients</a>
-      <a href="#consult" class="btn btn-solid">Free consultation</a>
+      <a href="#consult" data-open-modal class="btn btn-solid">Free consultation</a>
     </div>
   </header>
 
@@ -194,7 +194,7 @@
             <li>Painting, electrical &amp; finishing</li>
             <li>3D design + full execution</li>
           </ul>
-          <a href="#consult" class="btn btn-outline btn-block">Get a 3 BHK quote</a>
+          <a href="#consult" data-open-modal data-bhk="3 BHK" class="btn btn-outline btn-block">Get a 3 BHK quote</a>
         </article>
 
         <article class="price-card featured reveal" style="--i:1">
@@ -209,7 +209,7 @@
             <li>Creative solutions for a luxurious look</li>
             <li>Turnkey — concept to completion</li>
           </ul>
-          <a href="#consult" class="btn btn-solid btn-block">Get a 4 BHK quote</a>
+          <a href="#consult" data-open-modal data-bhk="4 BHK" class="btn btn-solid btn-block">Get a 4 BHK quote</a>
         </article>
 
         <article class="price-card reveal" style="--i:2">
@@ -223,7 +223,7 @@
             <li>Sustainable, durable materials</li>
             <li>Turnkey — concept to completion</li>
           </ul>
-          <a href="#consult" class="btn btn-outline btn-block">Get a 5 BHK quote</a>
+          <a href="#consult" data-open-modal data-bhk="5 BHK / Villa" class="btn btn-outline btn-block">Get a 5 BHK quote</a>
         </article>
       </div>
       <p class="price-fine reveal">*Indicative starting prices. Your final quote depends on scope, finishes and site condition — and your free consultation includes a detailed estimate.</p>
@@ -371,7 +371,7 @@
         </figure>
       </div>
       <div class="work-more">
-        <a href="#consult" class="btn btn-outline">Start your project</a>
+        <a href="#consult" data-open-modal class="btn btn-outline">Start your project</a>
       </div>
     </div>
   </section>
@@ -383,7 +383,7 @@
       <h2 class="reveal" style="--i:1">Your space deserves to shine.</h2>
       <p class="reveal" style="--i:2">Let's make your dream home a stunning reality with Studio Ezube. Contact us today for your FREE consultation — start your journey today.</p>
       <div class="cine-cta reveal" style="--i:3">
-        <a href="#consult" class="btn btn-solid">Book a free consultation</a>
+        <a href="#consult" data-open-modal class="btn btn-solid">Book a free consultation</a>
         <a href="tel:+919811000000" class="btn btn-ghost">Call +91 98110 00000</a>
       </div>
     </div>
@@ -453,9 +453,18 @@
             </select>
           </div>
         </div>
-        <div class="field">
-          <label for="c-msg">Anything we should know? <span class="opt">(optional)</span></label>
-          <textarea id="c-msg" name="message" rows="3" placeholder="Possession date, must-haves, inspiration…"></textarea>
+        <div class="field-row">
+          <div class="field">
+            <label for="c-area">Locality</label>
+            <input id="c-area" name="area" type="text" placeholder="e.g. Gurugram, Noida" />
+          </div>
+          <div class="field">
+            <label for="c-budget">Budget <span class="opt">(optional)</span></label>
+            <select id="c-budget" name="budget">
+              <option value="" disabled selected>Select</option>
+              <option>₹8–12 L</option><option>₹12–18 L</option><option>₹18–25 L</option><option>₹25 L+</option>
+            </select>
+          </div>
         </div>
         <button type="submit" class="btn btn-solid btn-block">
           Send my details
@@ -489,16 +498,13 @@
         <a href="#pricing">Pricing</a><a href="#why">Why us</a><a href="#process">Process</a><a href="#work">Our work</a><a href="#voices">Clients</a>
       </div>
       <div class="footer-col">
-        <h4>Services</h4>
-        <a href="#consult">Full home interiors</a><a href="#consult">Modular kitchens</a><a href="#consult">Wardrobes &amp; storage</a><a href="#consult">False ceiling &amp; lighting</a><a href="#consult">Turnkey execution</a>
-      </div>
-      <div class="footer-col">
         <h4>Talk to us</h4>
         <a href="tel:+919811000000">+91 98110 00000</a><a href="mailto:hello@studioezube.com">hello@studioezube.com</a><span>Delhi-NCR</span><span>Mon–Sat · 10–19h</span>
       </div>
     </div>
     <div class="wrap footer-base">
       <p>© <span id="year">2026</span> Studio Ezube. All rights reserved.</p>
+      <p class="dev">Developed by <span>Aajneeti Connect Limited</span></p>
       <p class="fine">*Prices indicative; final quote after consultation.</p>
     </div>
   </footer>
@@ -512,6 +518,58 @@
     <a href="tel:+919811000000" class="fab-btn fab-call" aria-label="Call Studio Ezube" data-tip="Call us now">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.6 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.6 3.6 1 1 0 01-.25 1z"/></svg>
     </a>
+  </div>
+
+  <!-- ===================== LEAD MODAL ===================== -->
+  <div class="modal" id="leadModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <form class="lead-form" id="modalForm" novalidate>
+        <div class="form-head">
+          <h2 id="modalTitle">Book a free consultation</h2>
+          <p>Tell us about your home. We'll call within 24 hours with ideas and a ballpark quote.</p>
+        </div>
+        <div class="field">
+          <label for="m-name">Full name</label>
+          <input id="m-name" name="name" type="text" autocomplete="name" placeholder="e.g. Aarav Sharma" required />
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="m-phone">Phone</label>
+            <input id="m-phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10-digit mobile" required />
+          </div>
+          <div class="field">
+            <label for="m-type">Home type</label>
+            <select id="m-type" name="type" required>
+              <option value="" disabled selected>Select</option>
+              <option>3 BHK</option><option>4 BHK</option><option>5 BHK / Villa</option><option>2 BHK</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="m-area">Locality</label>
+            <input id="m-area" name="area" type="text" placeholder="e.g. Gurugram, Noida" />
+          </div>
+          <div class="field">
+            <label for="m-budget">Budget <span class="opt">(optional)</span></label>
+            <select id="m-budget" name="budget">
+              <option value="" disabled selected>Select</option>
+              <option>₹8–12 L</option><option>₹12–18 L</option><option>₹18–25 L</option><option>₹25 L+</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-solid btn-block">
+          Get my free consultation
+          <svg viewBox="0 0 24 24" class="ico"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <p class="form-note">No spam — we only call about your project.</p>
+        <div class="form-success" hidden>
+          <svg viewBox="0 0 24 24" class="ico-ok"><path d="M5 13l4 4L19 7"/></svg>
+          <p><b>Thank you!</b> We've got your details and will call you within 24 hours.</p>
+        </div>
+      </form>
+    </div>
   </div>
 
   <!-- ===================== LIGHTBOX ===================== -->
