@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <!-- Architectural drawing grid — used as a faint tiled backdrop -->
+  <g fill="none" stroke="#C8A24A" stroke-width="1">
+    <path d="M0 0H80V80" opacity="0.10"/>
+    <path d="M0 40H80 M40 0V80" opacity="0.05"/>
+    <circle cx="0" cy="0" r="1.4" fill="#C8A24A" stroke="none" opacity="0.22"/>
+  </g>
+</svg>
