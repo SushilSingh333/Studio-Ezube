@@ -297,7 +297,7 @@ h3{font-family:var(--ff-sans);font-weight:700;font-size:1.16rem;letter-spacing:-
 
 /* ============================ cinematic band ============================ */
 .cine{position:relative;isolation:isolate;color:var(--cream);text-align:center;padding:clamp(5rem,11vw,9rem) 0;overflow:hidden}
-.cine::before{content:"";position:absolute;inset:0;z-index:-2;background:url("../assets/bedroom.jpg") center/cover no-repeat;transform:scale(1.03)}
+.cine::before{content:"";position:absolute;inset:0;z-index:-2;background:url("../assets/bedroom-1.jpg") center/cover no-repeat;transform:scale(1.03)}
 .cine::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(14,12,10,.72),rgba(14,12,10,.62))}
 .cine .eyebrow{color:var(--champ)}
 .cine .eyebrow::before{background:var(--champ)}
